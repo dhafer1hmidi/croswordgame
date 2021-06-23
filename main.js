@@ -75,3 +75,11 @@ w72: { word:'Zeal' , synonym:'fervor' , antonym:'Apathy'},
 w73: { word:'Zenith' , synonym:'summit' , antonym:'base'},
 w74: { word:'Zest' , synonym:'delight' , antonym:'Disgust'}
 }
+var arrOfObj=[Object.keys(allTheNeds)]
+var randomIndex = function(array){    
+    var randomIndex = Math.floor(Math.random()*array.length)
+    return array[randomIndex]
+    }
+    function question(){
+        return 'what is the synonym of : ' + randomIndex(allTheNeds)[0]
+    }
