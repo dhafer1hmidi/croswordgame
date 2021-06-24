@@ -117,41 +117,6 @@ w72: { word:'Zeal' , synonym:'fervor' , antonym:'Apathy'},
 w73: { word:'Zenith' , synonym:'summit' , antonym:'base'},
 w74: { word:'Zest' , synonym:'delight' , antonym:'Disgust'}
 }
-var arrOfKeys= Object.values(allTheNeds);
-
-var randomIndex = function(array){  
-   var randomIndex = Math.floor(Math.random()*array.length)
-   return randomIndex
-   }
-  
-function questionSynonym(array){
-       return 'what is the synonym of : ' + array[randomIndex(arrOfKeys)].word + '?';
-   }
-
-function questionAntonym(array){
-       return 'what is the antonym of : ' + array[randomIndex(arrOfKeys)].antonym  + '?';
-   }
-var arrOfquestions =[]
-function addQuestion(arrOfquestions,array){
-    var count =0;
-    if(arrOfquestions.length<6 && count === 0){
-   arrOfquestions.push(questionSynonym(array));
-   arrOfquestions.push(questionAntonym(array))
-    }else {
-        count =0
-    }
-    return arrOfquestions
-}
-
-$(document).ready(function() {
-
-$( "#btn" ).click(function() {
-   var arr = addQuestion(arrOfquestions,arrOfKeys)
-   var result = arr[arr.length-1] + " \n " +  arr[arr.length-2] 
-  $("#container").text(result)
- });
- 
-});
 //this is the way to get the word to preaper each level
 function word1(allTheNeds){
   return filter(allTheNeds,function(element){
@@ -224,4 +189,20 @@ function word1(allTheNeds){
     }
     return true;
    }
-   
+  
+function solve(){
+ return(document.getElementById("FirstA").value = answer1,
+ document.getElementById('secondA').value=answer2,
+ document.getElementById('thirdA').value=answer3,
+ document.getElementById('forthA').value=answer4,
+ document.getElementById('fifthA').value=answer5)
+}
+$(document).ready(function() {
+  $("#butt3").click(solve)
+$( "#btn" ).click(function() {
+   var arr = addQuestion(arrOfquestions,arrOfKeys)
+   var result = arr[arr.length-1] + " \n " +  arr[arr.length-2] 
+  $("#container").text(result)
+
+ });
+});
