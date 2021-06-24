@@ -91,12 +91,20 @@ function questionAntonym(array){
     }
 var arrOfquestions =[]
  function addQuestion(arrOfquestions,array){
-     if(arrOfquestions.length<7){
+
+     if(arrOfquestions.length<6){
     arrOfquestions.push(questionSynonym(array));
     arrOfquestions.push(questionAntonym(array))
      }else {
          alert("you cannot add more question") 
      }
+     return arrOfquestions
  }
-$("#GetQuestion").click(addQuestion);
-
+ 
+ $(document).ready(function() {
+ $( "#btn" ).click(function() {
+    var arr = addQuestion(arrOfquestions,arrOfKeys)
+    var result = arr[arr.length-1] + " \n " +  arr[arr.length-2] 
+    console.log(result)
+  });
+});
