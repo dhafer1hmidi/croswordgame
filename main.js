@@ -1,4 +1,3 @@
-
 function each(coll, f) {
     if (Array.isArray(coll)) {
       for (var i = 0; i < coll.length; i++) {
@@ -40,7 +39,7 @@ function each(coll, f) {
     return acc;
   }
 
-  
+
 var allTheNeds = {
     w1: { word:'Acumen' , synonym:'Awareness' , antonym:'Ignorance',Image:'./images:'},
 w2 :{ word:'Abate' , synonym:'Moderate' , antonym:'Aggravate'},
@@ -124,7 +123,7 @@ var randomIndex = function(array){
    var randomIndex = Math.floor(Math.random()*array.length)
    return randomIndex
    }
-
+  
 function questionSynonym(array){
        return 'what is the synonym of : ' + array[randomIndex(arrOfKeys)].word + '?';
    }
@@ -134,12 +133,12 @@ function questionAntonym(array){
    }
 var arrOfquestions =[]
 function addQuestion(arrOfquestions,array){
-
-    if(arrOfquestions.length<6){
+    var count =0;
+    if(arrOfquestions.length<6 && count === 0){
    arrOfquestions.push(questionSynonym(array));
    arrOfquestions.push(questionAntonym(array))
     }else {
-        alert("you cannot add more question") 
+        count =0
     }
     return arrOfquestions
 }
@@ -153,24 +152,76 @@ $( "#btn" ).click(function() {
  });
  
 });
-
-// $(document).ready(function() {
-//     $("#img1").attr("src", ".asset/img01.jpg");
-//     $("#img2").attr("src", ".asset/img02.jpg");
-//     $("#img3").attr("src", ".asset/img03.jpg");
-// });
-
-var images = new Array ();
-images[0] = "asset/img01.jpg";
-images[1] = "asset/img02.jpg";
-images[2] = "asset/img03.jpg";
-images[3] = "asset/img03.jpg";
-var size = images.length
-var x = Math.floor(size*Math.random())
-
-// $('#random').attr('src',image[x]);
-
-$('.all').css('background-image', 'url('+ images[x] +')');
-
-
-// $('myObject').css('background-image', 'url(' + imageUrl + ')');
+//this is the way to get the word to preaper each level
+function word1(allTheNeds){
+  return filter(allTheNeds,function(element){
+  if(element.synonym.length===4 || element.antonym.length===4){
+  return element.synonym + element.antonym 
+  }
+  })
+  }
+  function word2(allTheNeds){
+    return filter(allTheNeds,function(element){
+    if((element.synonym.length===8 || element.antonym.length===8)&&((element.synonym.indexOf('e')===4)||(element.antonym.indexOf('e')===4))){
+    return element.synonym + element.antonym 
+    }
+    })
+    }
+    function word3(allTheNeds){
+      return filter(allTheNeds,function(element){
+      if((element.synonym.length===10 || element.antonym.length===10)&&((element.synonym.indexOf('r')===5)||(element.antonym.indexOf('r')===5))){
+      return element.synonym + element.antonym 
+      }
+      })
+      }
+      function word4(allTheNeds){
+        return filter(allTheNeds,function(element){
+        if((element.synonym.length===5 || element.antonym.length===5)&&((element.synonym.indexOf('r')===3)||(element.antonym.indexOf('r')===3))){
+        return element.synonym + element.antonym 
+        }
+        })
+        }
+        function word5(allTheNeds){
+          return filter(allTheNeds,function(element){
+          if((element.synonym.length===6 || element.antonym.length===6)&&((element.synonym.indexOf('i')===2)||(element.antonym.indexOf('i')===2))){
+          return element.synonym + element.antonym 
+          }
+          })
+          }
+          //making the answers to as varuabul so the conparisation would be easyer   
+  var answer1='Able';
+  var answer2='Liberate';
+  var answer3='Retrogress';
+  var answer4='Breakable';
+  var answer5='Poison';
+  function checkAnswer1(){
+   if(document.getElementById("FirstA").value!==answer1){
+     return false;
+   }
+   return true;
+  }
+  function checkAnswer2(){
+    if(document.getElementById("secondA").value!==answer2){
+      return false;
+    }
+    return true;
+   }
+   function checkAnswer3(){
+    if(document.getElementById("thirdA").value!==answer3){
+      return false;
+    }
+    return true;
+   }
+   function checkAnswer4(){
+    if(document.getElementById("forthA").value!==answer4){
+      return false;
+    }
+    return true;
+   }
+   function checkAnswer5(){
+    if(document.getElementById("fifthA").value!==answer5){
+      return false;
+    }
+    return true;
+   }
+   
