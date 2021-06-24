@@ -1,5 +1,47 @@
+function each(coll, f) {
+    if (Array.isArray(coll)) {
+      for (var i = 0; i < coll.length; i++) {
+        f(coll[i], i);
+      }
+    } else {
+      for (var key in coll) {
+        f(coll[key], key);
+      }
+    }
+  }
+  
+  function filter(array, predicate) {
+    var acc = [];
+    each(array, function(element, i) {
+      if (predicate(element, i)) {
+        acc.push(element);
+      }
+    });
+    return acc;
+  }
+  
+  function map(array, func) {
+    var acc = [];
+    each(array, function(element, i) {
+      acc.push(func(element, i));
+    });
+    return acc;
+  }
+  
+  function reduce(array, f, acc) {
+    if (acc === undefined) {
+      acc = array[0];
+      array = array.slice(1);
+    }
+    each(array, function(element, i) {
+      acc = f(acc, element, i);
+    });
+    return acc;
+  }
+
+  
 var allTheNeds = {
-     w1: { word:'Acumen' , synonym:'Awareness' , antonym:'Ignorance'},
+    w1: { word:'Acumen' , synonym:'Awareness' , antonym:'Ignorance',Image:'./images:'},
 w2 :{ word:'Abate' , synonym:'Moderate' , antonym:'Aggravate'},
 w3: {word:'Absolve' , synonym:'forgive' , antonym:'Accuse'},
 w4: { word:'Brittle' , synonym:'Breakable' , antonym:'Tough' },
@@ -78,33 +120,35 @@ w74: { word:'Zest' , synonym:'delight' , antonym:'Disgust'}
 var arrOfKeys= Object.values(allTheNeds);
 
 var randomIndex = function(array){  
-    var randomIndex = Math.floor(Math.random()*array.length)
-    return randomIndex
-    }
+   var randomIndex = Math.floor(Math.random()*array.length)
+   return randomIndex
+   }
 
 function questionSynonym(array){
-        return 'what is the synonym of : ' + array[randomIndex(arrOfKeys)].word + '?';
-    }
+       return 'what is the synonym of : ' + array[randomIndex(arrOfKeys)].word + '?';
+   }
 
 function questionAntonym(array){
-        return 'what is the antonym of : ' + array[randomIndex(arrOfKeys)].antonym  + '?';
-    }
+       return 'what is the antonym of : ' + array[randomIndex(arrOfKeys)].antonym  + '?';
+   }
 var arrOfquestions =[]
- function addQuestion(arrOfquestions,array){
+function addQuestion(arrOfquestions,array){
 
-     if(arrOfquestions.length<6){
-    arrOfquestions.push(questionSynonym(array));
-    arrOfquestions.push(questionAntonym(array))
-     }else {
-         alert("you cannot add more question") 
-     }
-     return arrOfquestions
- }
+    if(arrOfquestions.length<6){
+   arrOfquestions.push(questionSynonym(array));
+   arrOfquestions.push(questionAntonym(array))
+    }else {
+        alert("you cannot add more question") 
+    }
+    return arrOfquestions
+}
+
+$(document).ready(function() {
+
+$( "#btn" ).click(function() {
+   var arr = addQuestion(arrOfquestions,arrOfKeys)
+   var result = arr[arr.length-1] + " \n " +  arr[arr.length-2] 
+  $("#container").text(result)
+ });
  
- $(document).ready(function() {
- $( "#btn" ).click(function() {
-    var arr = addQuestion(arrOfquestions,arrOfKeys)
-    var result = arr[arr.length-1] + " \n " +  arr[arr.length-2] 
-    console.log(result)
-  });
 });
