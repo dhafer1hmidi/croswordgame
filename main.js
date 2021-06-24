@@ -1,4 +1,4 @@
-var allTheNeds ={
+var allTheNeds = {
      w1: { word:'Acumen' , synonym:'Awareness' , antonym:'Ignorance'},
 w2 :{ word:'Abate' , synonym:'Moderate' , antonym:'Aggravate'},
 w3: {word:'Absolve' , synonym:'forgive' , antonym:'Accuse'},
@@ -75,11 +75,28 @@ w72: { word:'Zeal' , synonym:'fervor' , antonym:'Apathy'},
 w73: { word:'Zenith' , synonym:'summit' , antonym:'base'},
 w74: { word:'Zest' , synonym:'delight' , antonym:'Disgust'}
 }
-var arrOfObj=[Object.keys(allTheNeds)]
-var randomIndex = function(array){    
+var arrOfKeys= Object.values(allTheNeds);
+
+var randomIndex = function(array){  
     var randomIndex = Math.floor(Math.random()*array.length)
-    return array[randomIndex]
+    return randomIndex
     }
-    function question(){
-        return 'what is the synonym of : ' + randomIndex(allTheNeds)[0]
+
+function questionSynonym(array){
+        return 'what is the synonym of : ' + array[randomIndex(arrOfKeys)].word + '?';
     }
+
+function questionAntonym(array){
+        return 'what is the antonym of : ' + array[randomIndex(arrOfKeys)].antonym  + '?';
+    }
+var arrOfquestions =[]
+ function addQuestion(arrOfquestions,array){
+     if(arrOfquestions.length<7){
+    arrOfquestions.push(questionSynonym(array));
+    arrOfquestions.push(questionAntonym(array))
+     }else {
+         alert("you cannot add more question") 
+     }
+ }
+$("#GetQuestion").click(addQuestion);
+
