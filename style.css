@@ -53,6 +53,14 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+
+   
+      }
+
+      #leftBox{
+        margin: auto;
+        padding: 30px; 
+
       }
 
 .quest {
@@ -91,16 +99,21 @@
     }
     #leftBox{
         float: left;
-        width:50%
-        height: 50%;
+
+        width: 50%;
+        height: 100%;
+
     }
     #rightBox{
         float: left;
     }
     #butt{
-        width: 100px;
+
+        width: 80px;
+
         padding:20px;
     }
+
     table{
         padding:20px;
     }
