@@ -40,6 +40,15 @@ function each(coll, f) {
   }
 
 
+
+
+$('.all').css('background-image', 'url('+ images[x] +')');
+
+//Stores ID of the selected cell into currentTextInput
+function textInputFocus(txtID123){
+	currentTextInput = txtID123;
+}
+
 var allTheNeds = {
     w1: { word:'Acumen' , synonym:'Awareness' , antonym:'Ignorance',Image:'./images:'},
 w2 :{ word:'Abate' , synonym:'Moderate' , antonym:'Aggravate'},
@@ -224,3 +233,4 @@ function checkAll(){
   }
   return newArr 
   }
+
