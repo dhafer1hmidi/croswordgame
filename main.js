@@ -16,5 +16,7 @@ var x = Math.floor(size*Math.random())
 
 $('.all').css('background-image', 'url('+ images[x] +')');
 
-
-// $('myObject').css('background-image', 'url(' + imageUrl + ')');
+//Stores ID of the selected cell into currentTextInput
+function textInputFocus(txtID123){
+	currentTextInput = txtID123;
+}
