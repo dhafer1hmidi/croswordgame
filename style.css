@@ -4,6 +4,10 @@
     background-attachment: fixed;
     background-size: cover;
   }
+  .topnav{
+      color font :azure;
+
+  }
   #leftBox{
     margin: auto;
     padding: 30px; 
