@@ -148,17 +148,17 @@ function word1(allTheNeds){
         }
         function word5(allTheNeds){
           return filter(allTheNeds,function(element){
-          if((element.synonym.length===6 || element.antonym.length===6)&&((element.synonym.indexOf('i')===2)||(element.antonym.indexOf('i')===2))){
+          if((element.synonym.length===4 || element.antonym.length===4)&&((element.synonym.indexOf('r')===4)||(element.antonym.indexOf('r')===4))){
           return element.synonym + element.antonym 
           }
           })
           }
           //making the answers to as varuabul so the conparisation would be easyer   
-  var answer1='Able';
-  var answer2='Liberate';
-  var answer3='Retrogress';
-  var answer4='Breakable';
-  var answer5='Poison';
+  var answer1=allTheNeds.w6.synonym;
+  var answer2=allTheNeds.w71.antonym;
+  var answer3=allTheNeds.w47.antonym;
+  var answer4=allTheNeds.w4.synonym;
+  var answer5=allTheNeds.w11.synonym;
   function checkAnswer1(){
    if(document.getElementById("FirstA").value!==answer1){
      return false;
@@ -197,12 +197,30 @@ function solve(){
  document.getElementById('forthA').value=answer4,
  document.getElementById('fifthA').value=answer5)
 }
-$(document).ready(function() {
-  $("#butt3").click(solve)
-$( "#btn" ).click(function() {
-   var arr = addQuestion(arrOfquestions,arrOfKeys)
-   var result = arr[arr.length-1] + " \n " +  arr[arr.length-2] 
-  $("#container").text(result)
-
- });
-});
+function clearAll(){
+  return(document.getElementById("FirstA").value = '',
+ document.getElementById('secondA').value='',
+ document.getElementById('thirdA').value='',
+ document.getElementById('forthA').value='',
+ document.getElementById('fifthA').value='' )
+}
+var writeAnswers=[answer1,answer2,answer3,answer4,answer5]
+function checkAll(){
+  var newArr=[]
+  if(checkAnswer1()){
+    newArr.push(document.getElementById("FirstA").value = answer1)
+  }
+   if(checkAnswer2()){
+    newArr.push(document.getElementById('secondA').value=answer2)
+  }
+  if(checkAnswer3()){
+    newArr.push(document.getElementById('thirdA').value=answer3)
+  }
+  if(checkAnswer4()){
+   newArr.push(document.getElementById('forthA').value=answer4)
+  }
+  if(checkAnswer5()){
+   newArr.push(document.getElementById('fifthA').value=answer5)
+  }
+  return newArr 
+  }

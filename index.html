@@ -170,10 +170,9 @@
     </div>
     <div id="rightBox">
     <table>
-        <tr><td><input id="butt1"  type="submit" value="Clear All"></td></tr>
-        <tr><td><input id="butt2"  type="submit" value="Check"></td></tr>
-      <tr><td>
-         <input id="butt3"  type="button" value="Solve"></td></tr> 
+        <tr><td><input id="butt1"  type="button" onclick="clearAll()" value="Clear All"></td></tr>
+        <tr><td><input id="butt2"  type="submit" onclick="checkAll()" value="Check"></td></tr>
+      <tr><td><input id="butt3"  type="button" onclick="solve()" value="Solve"></td></tr> 
         
     </table>
     
@@ -187,7 +186,7 @@
   <label class='quest' for="lname" id="forthQ">forth Question : What is the synonym of 'Brittle'?</label>
   <input type="text" id="forthA" name="lname"><br><br>
 
-  <label class='quest' for="fname" id="fifthQ">Fifth Question : What is the synonym of 'Venom' </label>
+  <label class='quest' for="fname" id="fifthQ">Fifth Question : What is the synonym of 'Despair' </label>
   <input type="text" id="fifthA" name="fname"><br><br>
   <label class='quest' for="lname">Second Question :</label>
   <input type="text" id="lname" name="lname"><br><br>
