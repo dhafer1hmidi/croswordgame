@@ -94,22 +94,20 @@ var allTheNeds = {
   w73: { word: 'Zenith', synonym: 'summit', antonym: 'base' },
   w74: { word: 'Zest', synonym: 'delight', antonym: 'Disgust' }
 }
-//this is the way to get the word to preaper each level
 function word1(allTheNeds) {
   return filter(allTheNeds, function (element) {
     if (element.synonym.length === 4 || element.antonym.length === 4) {
       return element.synonym + element.antonym
     }
-
   })
 }
 function word2(allTheNeds) {
-  return filter(allTheNeds, function (element) {
+  return filter(allTheNeds, function (element){
     if ((element.synonym.length === 8 || element.antonym.length === 8) && ((element.synonym.indexOf('e') === 4) || (element.antonym.indexOf('e') === 4))) {
       return element.synonym + element.antonym
-
-    })
     }
+    })
+  }
     function word3(allTheNeds){
       return filter(allTheNeds,function(element){
       if((element.synonym.length===10 || element.antonym.length===10)&&((element.synonym.indexOf('r')===5)||(element.antonym.indexOf('r')===5))){
@@ -146,10 +144,8 @@ function word2(allTheNeds) {
   function checkAnswer2(){
     if(document.getElementById("secondA").value!==answer2){
       return false;
-
     }
-  })
-}
+  }
 function word3(allTheNeds) {
   return filter(allTheNeds, function (element) {
     if ((element.synonym.length === 10 || element.antonym.length === 10) && ((element.synonym.indexOf('r') === 5) || (element.antonym.indexOf('r') === 5))) {
@@ -189,9 +185,7 @@ function checkAnswer1() {
   $('.char1').css("background-color" , "green")
   $( "input[id='checkb1']" ).prop({
     disabled: true });
- 
-
-  
+  }
    }
  
 
@@ -252,13 +246,6 @@ function checkAnswer5() {
 
 }
 
-function solve() {
-  return (document.getElementById("FirstA").value = answer1,
-    document.getElementById('secondA').value = answer2,
-    document.getElementById('thirdA').value = answer3,
-    document.getElementById('forthA').value = answer4,
-    document.getElementById('fifthA').value = answer5)
-}
 function clearAll() {
   return (document.getElementById("FirstA").value = '',
     document.getElementById('secondA').value = '',
@@ -286,11 +273,8 @@ function checkAll() {
   }
   return newArr
 }
-
 $('#submit').click(function(){
-
 $('#leftBox').html(need)
-
 })
 var need = `<
 <div id="leftBox2">
@@ -477,7 +461,11 @@ function word10(allTheNeds){
             }
             })
             } 
-
+    var question1="First Question : What is the synonym of 'Capable'?";
+    var question2="Second Question : Waht is the antonym of 'Yoke'? ?";
+    var question3="Third Question : What is the antonym of 'Progress'?" ;
+    var question4="forth Question : What is the synonym of 'Venom'?";
+    var question5="Fifth Question : What is the synonym of 'Despair'?"; 
   var question6="First Question : What is the antonym of 'Immerse' ?";
   var question7="Second Question : What is the antonym of 'Vagrant' ?";
   var question8="Third Question : What is the antonym of 'Knotty' ?" ;
@@ -506,10 +494,19 @@ function word10(allTheNeds){
    document.getElementById('fifthA').value=answer10)
     }
   }
-  
+
+  function displayLevel1(){
+    $("#FirstQ").text(question1)+$("#secondQ").text(question2)+$("#thirdQ").text(question3)+$("#forthQ").text(question4)+$("#fifthQ").text(question5)
+  }
 function displayLevel2(){
   $("#FirstQ").text(question6)+$("#secondQ").text(question7)+$("#thirdQ").text(question8)+$("#forthQ").text(question9)+$("#fifthQ").text(question10);
 }
 
-
-$("#next").click(displayLevel2)
+var nextAndDelet=function(){
+ return(displayLevel2(),clearAll())
+}
+var previous= function(){
+  return(displayLevel1(),checkAll())
+}
+$("#next").click(nextAndDelet)
+$("#previous").click(previous)
