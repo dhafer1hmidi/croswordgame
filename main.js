@@ -1,4 +1,3 @@
-
 function each(coll, f) {
     if (Array.isArray(coll)) {
       for (var i = 0; i < coll.length; i++) {
@@ -40,7 +39,7 @@ function each(coll, f) {
     return acc;
   }
 
-  
+
 var allTheNeds = {
     w1: { word:'Acumen' , synonym:'Awareness' , antonym:'Ignorance',Image:'./images:'},
 w2 :{ word:'Abate' , synonym:'Moderate' , antonym:'Aggravate'},
@@ -118,59 +117,110 @@ w72: { word:'Zeal' , synonym:'fervor' , antonym:'Apathy'},
 w73: { word:'Zenith' , synonym:'summit' , antonym:'base'},
 w74: { word:'Zest' , synonym:'delight' , antonym:'Disgust'}
 }
-var arrOfKeys= Object.values(allTheNeds);
-
-var randomIndex = function(array){  
-   var randomIndex = Math.floor(Math.random()*array.length)
-   return randomIndex
-   }
-
-function questionSynonym(array){
-       return 'what is the synonym of : ' + array[randomIndex(arrOfKeys)].word + '?';
-   }
-
-function questionAntonym(array){
-       return 'what is the antonym of : ' + array[randomIndex(arrOfKeys)].antonym  + '?';
-   }
-var arrOfquestions =[]
-function addQuestion(arrOfquestions,array){
-
-    if(arrOfquestions.length<6){
-   arrOfquestions.push(questionSynonym(array));
-   arrOfquestions.push(questionAntonym(array))
-    }else {
-        alert("you cannot add more question") 
+//this is the way to get the word to preaper each level
+function word1(allTheNeds){
+  return filter(allTheNeds,function(element){
+  if(element.synonym.length===4 || element.antonym.length===4){
+  return element.synonym + element.antonym 
+  }
+  })
+  }
+  function word2(allTheNeds){
+    return filter(allTheNeds,function(element){
+    if((element.synonym.length===8 || element.antonym.length===8)&&((element.synonym.indexOf('e')===4)||(element.antonym.indexOf('e')===4))){
+    return element.synonym + element.antonym 
     }
-    return arrOfquestions
+    })
+    }
+    function word3(allTheNeds){
+      return filter(allTheNeds,function(element){
+      if((element.synonym.length===10 || element.antonym.length===10)&&((element.synonym.indexOf('r')===5)||(element.antonym.indexOf('r')===5))){
+      return element.synonym + element.antonym 
+      }
+      })
+      }
+      function word4(allTheNeds){
+        return filter(allTheNeds,function(element){
+        if((element.synonym.length===5 || element.antonym.length===5)&&((element.synonym.indexOf('r')===3)||(element.antonym.indexOf('r')===3))){
+        return element.synonym + element.antonym 
+        }
+        })
+        }
+        function word5(allTheNeds){
+          return filter(allTheNeds,function(element){
+          if((element.synonym.length===4 || element.antonym.length===4)&&((element.synonym.indexOf('r')===4)||(element.antonym.indexOf('r')===4))){
+          return element.synonym + element.antonym 
+          }
+          })
+          }
+          //making the answers to as varuabul so the conparisation would be easyer   
+  var answer1=allTheNeds.w6.synonym;
+  var answer2=allTheNeds.w71.antonym;
+  var answer3=allTheNeds.w47.antonym;
+  var answer4=allTheNeds.w4.synonym;
+  var answer5=allTheNeds.w11.synonym;
+  function checkAnswer1(){
+   if(document.getElementById("FirstA").value!==answer1){
+     return false;
+   }
+   return true;
+  }
+  function checkAnswer2(){
+    if(document.getElementById("secondA").value!==answer2){
+      return false;
+    }
+    return true;
+   }
+   function checkAnswer3(){
+    if(document.getElementById("thirdA").value!==answer3){
+      return false;
+    }
+    return true;
+   }
+   function checkAnswer4(){
+    if(document.getElementById("forthA").value!==answer4){
+      return false;
+    }
+    return true;
+   }
+   function checkAnswer5(){
+    if(document.getElementById("fifthA").value!==answer5){
+      return false;
+    }
+    return true;
+   }
+  
+function solve(){
+ return(document.getElementById("FirstA").value = answer1,
+ document.getElementById('secondA').value=answer2,
+ document.getElementById('thirdA').value=answer3,
+ document.getElementById('forthA').value=answer4,
+ document.getElementById('fifthA').value=answer5)
 }
-
-$(document).ready(function() {
-
-$( "#btn" ).click(function() {
-   var arr = addQuestion(arrOfquestions,arrOfKeys)
-   var result = arr[arr.length-1] + " \n " +  arr[arr.length-2] 
-  $("#container").text(result)
- });
- 
-});
-
-// $(document).ready(function() {
-//     $("#img1").attr("src", ".asset/img01.jpg");
-//     $("#img2").attr("src", ".asset/img02.jpg");
-//     $("#img3").attr("src", ".asset/img03.jpg");
-// });
-
-var images = new Array ();
-images[0] = "asset/img01.jpg";
-images[1] = "asset/img02.jpg";
-images[2] = "asset/img03.jpg";
-images[3] = "asset/img03.jpg";
-var size = images.length
-var x = Math.floor(size*Math.random())
-
-// $('#random').attr('src',image[x]);
-
-$('.all').css('background-image', 'url('+ images[x] +')');
-
-
-// $('myObject').css('background-image', 'url(' + imageUrl + ')');
+function clearAll(){
+  return(document.getElementById("FirstA").value = '',
+ document.getElementById('secondA').value='',
+ document.getElementById('thirdA').value='',
+ document.getElementById('forthA').value='',
+ document.getElementById('fifthA').value='' )
+}
+var writeAnswers=[answer1,answer2,answer3,answer4,answer5]
+function checkAll(){
+  var newArr=[]
+  if(checkAnswer1()){
+    newArr.push(document.getElementById("FirstA").value = answer1)
+  }
+   if(checkAnswer2()){
+    newArr.push(document.getElementById('secondA').value=answer2)
+  }
+  if(checkAnswer3()){
+    newArr.push(document.getElementById('thirdA').value=answer3)
+  }
+  if(checkAnswer4()){
+   newArr.push(document.getElementById('forthA').value=answer4)
+  }
+  if(checkAnswer5()){
+   newArr.push(document.getElementById('fifthA').value=answer5)
+  }
+  return newArr 
+  }
