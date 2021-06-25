@@ -1,0 +1,58 @@
+.all {
+    /* background-image: url(''); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  .topnav{
+      color font :azure;
+
+  }
+  #leftBox{
+    margin: auto;
+    padding: 30px; 
+  }
+.quest {
+color : white
+}
+  #puzzel {
+    width:100%;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+#cross{
+    text-align: center;
+    color : white ;
+    width:30px;
+    height:30px;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    border: 1px solid rgb(2, 2, 2);
+}
+#buttons{
+    width:30%;
+    float: right;
+}
+tr{
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+}
+#leftBox{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+#rightBox{
+    float: left;
+}
+#butt{
+    width: 80px;
+    padding:20px;
+}
+table{
+    padding:20px;
+}
