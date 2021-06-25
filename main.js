@@ -237,4 +237,48 @@ function checkAll(){
   }
   return newArr 
   }
+  function word6(allTheNeds){
+    return filter(allTheNeds,function(element){
+    if((element.synonym.length===6 || element.antonym.length===6)&&((element.synonym.indexOf('r')===3)||(element.antonym.indexOf('r')===3))){
+    return element.synonym + element.antonym 
+    }
+    })
+    }
+    function word7(allTheNeds){
+      return filter(allTheNeds,function(element){
+      if((element.synonym.length===7 || element.antonym.length===7)&&((element.synonym.indexOf('m')===3)||(element.antonym.indexOf('m')===3))){
+      return element.synonym + element.antonym 
+      }
+      })
+      }
+      function word8(allTheNeds){
+        return filter(allTheNeds,function(element){
+        if((element.synonym.length===10 || element.antonym.length===10)&&((element.synonym.indexOf('g')===4)||(element.antonym.indexOf('g')===4))){
+        return element.synonym + element.antonym 
+        }
+        })
+        }
+        function word9(allTheNeds){
+          return filter(allTheNeds,function(element){
+          if((element.synonym.length===4 || element.antonym.length===4)&&((element.synonym.indexOf('e')===4)||(element.antonym.indexOf('e')===4))){
+          return element.synonym + element.antonym 
+          }
+          })
+          }
+          function word10(allTheNeds){
+            return filter(allTheNeds,function(element){
+            if((element.synonym.length===5 || element.antonym.length===5)&&((element.synonym.indexOf('r')===0)||(element.antonym.indexOf('r')===0))){
+            return element.synonym + element.antonym 
+            }
+            })
+            }
 
+  var question6='';
+  var question7='';
+  var question8='';
+  var question9='';
+  var question10=''; 
+
+function displayLevel2(){
+  $("#FirstQme").text(question6)+$("secondQ").text(question7)+$("thirdQ").text(question8)+$("forthQ").text(question9)+$("#fifthQ").text(question10);
+}
