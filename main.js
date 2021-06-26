@@ -1,4 +1,8 @@
 
+$("#general").hide();
+
+
+
 
 var images = new Array();
 images[0] = "asset/img01.jpg";
@@ -11,6 +15,19 @@ var x = Math.floor(size * Math.random())
 
 
 $('.all').css('background-image', 'url(' + images[x] + ')');
+
+//nav bar 
+$(".active").on('click',function(){
+  location.reload();
+})
+
+$("#newbt").on('click',function(){
+  $("#general").show()
+})
+
+$('#logo').on('click',function(){
+  $("#general").show()
+})
 
 //Stores ID of the selected cell into currentTextInput
 function textInputFocus(txtID123) {
@@ -168,6 +185,7 @@ function word5(allTheNeds) {
 
   })
 }
+
 //making the answers to as varuabul so the conparisation would be easyer   
 var answer1 = allTheNeds.w6.synonym;
 var answer2 = allTheNeds.w71.antonym;
@@ -225,12 +243,12 @@ function checkAnswer3() {
 }
 function checkAnswer4() {
   if (document.getElementById("forthA").value !== answer4) {
-    $('.char1').css("background-color", "red")
+    $('.char4').css("background-color", "red")
   }
   else {
   $( "input[id='checkb4']" ).prop({
     disabled: true });
-    $('.char1').css("background-color", "green")
+    $('.char4').css("background-color", "green")
 }
 }
 
@@ -373,7 +391,7 @@ var need = `<
     </tr>
      <tr id='tr8'>
       <td id="cross" bgcolor="#FFFFFF"></td>
-      <td id="cross" class='char4'>?</td>
+      <td id="cross" class='char4' >?</td>
       <td id="cross" bgcolor="#FFFFFF"></td>
       <td id="cross" bgcolor="#FFFFFF"></td>
       <td id="cross" bgcolor="#FFFFFF"></td>
@@ -386,7 +404,7 @@ var need = `<
     </tr>
      <tr>
       <td id="cross" bgcolor="#FFFFFF"></td>
-      <td id="cross" class='char4'>?</td>
+      <td id="cross" class='char4' >?</td>
       <td id="cross" bgcolor="#FFFFFF"></td>
       <td id="cross" bgcolor="#FFFFFF"></td>
       <td id="cross" bgcolor="#FFFFFF"></td>
@@ -508,5 +526,5 @@ var nextAndDelet=function(){
 var previous= function(){
   return(displayLevel1(),checkAll())
 }
-$("#next").click(nextAndDelet)
-$("#previous").click(previous)
+$("#next").click(nextAndDelet);
+$("#previous").click(previous);
